@@ -15,7 +15,7 @@ class Home extends CI_Controller
 
     public function index()
     {
-        $data['title'] = 'CI 3 - Mazer Admin Dashboard';
+        $data['title'] = 'Dashboard';
         $data['count_user'] = $this->db->count_all('user');
         $data['content'] = 'home';
         $this->load->view('template/layout/base', $data);
