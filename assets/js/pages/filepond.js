@@ -31,19 +31,16 @@ FilePond.create(document.querySelector(".with-validation-filepond"), {
     }),
 })
 
-// Filepond: ImgBB with server property
 FilePond.create(document.querySelector(".imgbb-filepond"), {
   credits: null,
   allowImagePreview: false,
   server: {
     process: (fieldName, file, metadata, load, error, progress, abort) => {
-      // We ignore the metadata property and only send the file
 
       const formData = new FormData()
       formData.append(fieldName, file, file.name)
 
       const request = new XMLHttpRequest()
-      // you can change it by your client api key
       request.open(
         "POST",
         "https://api.imgbb.com/1/upload?key=762894e2014f83c023b233b2f10395e2"
@@ -64,19 +61,21 @@ FilePond.create(document.querySelector(".imgbb-filepond"), {
       request.onreadystatechange = function () {
         if (this.readyState == 4) {
           if (this.status == 200) {
-            let response = JSON.parse(this.responseText)
+						let response = JSON.parse(this.responseText);
+						document.querySelector('.input-disini').value = response.data.display_url;
+						
+						let buttonSimpan = document.querySelector('.button-simpan');
+						let buttonDisable = document.querySelector('.button-disable');
 
-            Toastify({
-              text: "Success uploading to imgbb! see console f12",
-              duration: 3000,
-              close: true,
-              gravity: "bottom",
-              position: "right",
-              backgroundColor: "#4fbe87",
-            }).showToast()
-
-            console.log(response)
-          } else {
+						if (buttonSimpan) {
+							buttonSimpan.style.display = 'block';
+							buttonDisable.style.display = 'none';
+						}
+					
+						load(request.responseText);
+						// console.log(response);
+					}
+					 else {
             Toastify({
               text: "Failed uploading to imgbb! see console f12",
               duration: 3000,

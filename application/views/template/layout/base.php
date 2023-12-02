@@ -20,18 +20,7 @@
 </head>
 
 <body>
-	<script src="<?= base_url('assets/js/initTheme.js') ?>"></script>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-	<script src="<?= base_url('assets/js/app.js') ?>"></script>
-	<script src="<?= base_url('assets/js/bootstrap.js') ?>"></script>
-	<script src="<?= base_url('assets/extensions/sweetalert2/sweetalert2.js') ?>"></script>
-	<script src="<?= base_url('assets/extensions/filepond/filepond.js') ?>"></script>
-	<script src="<?= base_url('assets/js/pages/filepond.js') ?>"></script>
-	<script src="<?= base_url('assets\extensions\parsleyjs/parsley.min.js') ?>"></script>
-	<script src="<?= base_url('assets\extensions\parsleyjs/parsley.js') ?>"></script>
-
-
-
 	<div id="app">
 		<?php $this->load->view('template/include/sidebar') ?>
 		<div id="main">
@@ -41,5 +30,12 @@
 		</div>
 	</div>
 </body>
-
+<script src="<?= base_url('assets/js/initTheme.js') ?>"></script>
+	<script src="<?= base_url('assets/js/app.js') ?>"></script>
+	<script src="<?= base_url('assets/js/bootstrap.js') ?>"></script>
+	<script src="<?= base_url('assets/extensions/sweetalert2/sweetalert2.js') ?>"></script>
+	<script src="<?= base_url('assets/extensions/filepond/filepond.js') ?>"></script>
+	<script src="<?= base_url('assets/js/pages/filepond.js') ?>"></script>
+	<script src="<?= base_url('assets\extensions\parsleyjs/parsley.min.js') ?>"></script>
+	<script src="<?= base_url('assets\extensions\parsleyjs/parsley.js') ?>"></script>
 </html>
