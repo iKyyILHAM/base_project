@@ -33,7 +33,7 @@
 			</div>
 			<div class="card-body">
 				<div class="table-responsive">
-					<table class="table table-hover table-striped table-bordered" style="text-wrap: nowrap;">
+					<table id="table-berkas" class="table table-hover table-striped table-bordered" style="text-wrap: nowrap;">
 						<thead>
 							<tr>
 								<th class="text-center">No</th>
@@ -62,7 +62,6 @@
 							<?php endforeach;
 							endif; ?>
 						</tbody>
-
 					</table>
 				</div>
 			</div>

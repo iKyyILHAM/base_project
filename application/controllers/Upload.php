@@ -18,6 +18,9 @@ class Upload extends CI_Controller
 		$data['title'] = 'Data Upload';
 		$data['upload'] = $this->Upload->select();
 		$data['content'] = 'upload/view';
+
+		// dd($data);
+
 		$this->load->view('template/layout/base', $data);
 	}
 
