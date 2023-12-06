@@ -32,7 +32,7 @@
 				<a class="btn btn-primary float-end" href="<?= base_url('upload') ?>">Kembali</a>
 			</div>
 			<div class="card-body">
-				<form id="form-update" method="post" enctype="multipart/form-data">
+				<form id="upload-imgbb-update" method="post" enctype="multipart/form-data">
 					<div class="mb-3">
 						<label for="name" class="form-label">Name</label>
 						<input type="hidden" name="id" value="<?= $upload['id'] ?>">
@@ -44,11 +44,11 @@
 						</div>
 						<img src="<?= $upload['link'] ?>" alt="">
 					</div>
-
 					<div class="mb-3">
 						<label for="berkas" class="form-label">Berkas</label>
 						<div name="berkas">
-							<input type="file" class="form-control" name='berkas_input' id='berkas_input'>
+							<input type="file" name="image" class="imgbb-filepond">
+							<input type="hidden" required data-parsley-required="true" name="link" id="link" class="input-disini form-control" value="<?= $upload['link'] ?>">
 							<span class="text-danger" style="font-size: 10px;">*Pilih file jika ingin mengubah file</span>
 						</div>
 					</div>
@@ -62,41 +62,39 @@
 </div>
 <script>
 	$(document).ready(function() {
-		$('#form-update').submit(function(e) {
+		$('#upload-imgbb-update').submit(function(e) {
 			e.preventDefault();
 			var formData = new FormData(this);
 
 			$.ajax({
-				url: '<?= base_url('upload/update') ?>',
+				url: '<?= base_url('onplud/update') ?>',
 				type: 'POST',
 				data: formData,
 				processData: false,
 				contentType: false,
-				success: function(response) {
-					response = JSON.parse(response)
-					if (response.status === 'success') {
-						Swal.fire({
-							position: "top-end",
-							icon: "success",
-							title: "Berhasil disimpan",
-							showConfirmButton: false,
-							timer: 1500
-						}).then(() => {
-							window.location.href = '<?= base_url('upload') ?>';
-						});
-					} else {
-						Swal.fire({
-							icon: "error",
-							title: "Terjadi Kesalahan",
-							text: response.message.replace(/<[^>]*>/g, ''),
-							showConfirmButton: false,
-							timer: 1500
-						});
-					}
-				},
-				error: function(error) {
-					console.error('Error:', error);
+			}).done(function(response) {
+				response = JSON.parse(response)
+				if (response.status === 'success') {
+					Swal.fire({
+						icon: "success",
+						title: "Berhasil disimpan",
+						text: "Berhasil menyimpan data",
+						showConfirmButton: false,
+						timer: 1500
+					}).then(() => {
+						window.location.href = '<?= base_url('onplud') ?>';
+					});
+				} else {
+					Swal.fire({
+						icon: "error",
+						title: "Terjadi Kesalahan",
+						text: response.message.replace(/<[^>]*>/g, ''),
+						showConfirmButton: false,
+						timer: 1500
+					});
 				}
+			}).fail(function(error) {
+				console.error('Error:', error);
 			});
 		});
 	});

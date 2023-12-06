@@ -26,12 +26,15 @@ $current_page = get_current_page();
 				</li>
 
 
-				<li class="sidebar-item <?= is_active('user', $current_page) ?>">
-					<a href="<?= base_url('user') ?>" class="sidebar-link">
-						<i class="bi bi-person-fill"></i>
-						<span>User</span>
-					</a>
-				</li>
+				<?php if ($this->session->userdata('role') === '1') : ?>
+					<li class="sidebar-item <?= is_active('user', $current_page) ?>">
+						<a href="<?= base_url('user') ?>" class="sidebar-link">
+							<i class="bi bi-person-fill"></i>
+							<span>User</span>
+						</a>
+					</li>
+				<?php endif; ?>
+
 
 				<li class="sidebar-item <?= is_active('upload', $current_page) ?>">
 					<a href="<?= base_url('upload') ?>" class="sidebar-link">

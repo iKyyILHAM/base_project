@@ -37,6 +37,7 @@ class Auth extends CI_Controller
                 'username' => $cekAdmin['username'],
                 'user_id' => $cekAdmin['id'],
                 'is_hapus' => $cekAdmin['is_hapus'],
+                'role' => $cekAdmin['role'],
             ];
             $this->session->set_userdata($sessionData);
             $this->session->set_flashdata('berhasil', 'Selamat Datang!');

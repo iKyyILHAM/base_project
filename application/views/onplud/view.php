@@ -2,8 +2,8 @@
 	<div class="page-title">
 		<div class="row">
 			<div class="col-12 col-md-6 order-md-1 order-last">
-				<h3>ImgBB Uploader</h3>
-				<p class="text-subtitle text-muted">Halaman Data ImgBB</p>
+				<h3>Upload Gambar</h3>
+				<p class="text-subtitle text-muted">Halaman Data Gambar</p>
 			</div>
 			<div class="col-12 col-md-6 order-md-2 order-first">
 				<nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
@@ -12,7 +12,7 @@
 							<a href="<?= base_url('home') ?>">Dashboard</a>
 						</li>
 						<li class="breadcrumb-item active" aria-current="page">
-						ImgBB Uploader
+						Upload Gambar
 						</li>
 					</ol>
 				</nav>
@@ -28,7 +28,7 @@
 		<?php endif; ?>
 		<div class="card">
 			<div class="card-header">
-				<h4 class="card-title">Data ImgBB Uploader</h4>
+				<h4 class="card-title">Data Gambar</h4>
 				<a class="btn btn-primary btn-sm float-end" href="<?= base_url('onplud/add') ?>">Tambah</a>
 			</div>
 			<div class="card-body">

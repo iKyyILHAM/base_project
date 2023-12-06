@@ -15,8 +15,19 @@ class Upload extends CI_Controller
 
 	public function index()
 	{
+		$id = $this->session->userdata('user_id');
+
+		$sql = "SELECT * FROM upload WHERE created_by = '$id'";
+		$query = $this->db->query($sql);
+		$res = $query->result_array();
+
+		$data_sql = array();
+		foreach ($res as $key => $value) {
+			$data_sql[] = $value;
+		}
+
+		$data['upload'] = $data_sql;
 		$data['title'] = 'Data Upload';
-		$data['upload'] = $this->Upload->select();
 		$data['content'] = 'upload/view';
 
 		// dd($data);
@@ -34,10 +45,24 @@ class Upload extends CI_Controller
 	public function edit($id)
 	{
 		$data['title'] = 'Ubah Data Upload';
-		$data['upload'] = $this->Upload->select_by_id($id);
-		$data['content'] = 'upload/edit';
-		$this->load->view('template/layout/base', $data);
+
+		$session_user_id = $this->session->userdata('user_id');
+
+		$upload = $this->Upload->select_by_id($id);
+
+		if ($upload) {
+			if ($upload['created_by'] == $session_user_id) {
+				$data['upload'] = $upload;
+				$data['content'] = 'upload/edit';
+				$this->load->view('template/layout/base', $data);
+			} else {
+				show_404();
+			}
+		} else {
+			show_404();
+		}
 	}
+
 
 	public function create()
 	{
@@ -74,6 +99,7 @@ class Upload extends CI_Controller
 			$data = [
 				"name" => $name,
 				"berkas" => $file_name,
+				"created_by" => $this->session->userdata('user_id'),
 			];
 
 			$create = $this->Upload->insert($data);
@@ -125,6 +151,7 @@ class Upload extends CI_Controller
 			$data = [
 				"name" => $name,
 				"berkas" => $file_name,
+				"created_by" => $this->session->userdata('user_id'),
 			];
 		} else {
 			$data = [

@@ -2,8 +2,8 @@
 	<div class="page-title">
 		<div class="row">
 			<div class="col-12 col-md-6 order-md-1 order-last">
-				<h3>ImgBB Uploader</h3>
-				<p class="text-subtitle text-muted">Halaman ImgBB Uploader.</p>
+				<h3>Upload Gambar</h3>
+				<p class="text-subtitle text-muted">Halaman Upload Gambar.</p>
 			</div>
 			<div class="col-12 col-md-6 order-md-2 order-first">
 				<nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
@@ -12,7 +12,7 @@
 							<a href="index.html">Berkas</a>
 						</li>
 						<li class="breadcrumb-item active" aria-current="page">
-							Tambah ImgBB Uploader
+							Tambah Gambar
 						</li>
 					</ol>
 				</nav>

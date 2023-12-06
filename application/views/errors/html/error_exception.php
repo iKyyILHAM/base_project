@@ -1,32 +1,42 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 ?>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
-<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
+<div class="container pt-5 text-center">
+	<div class="row">
+		<div class="col-md-12">
+			<p style="font-size: 200px;" class="fw-bold">An uncaught Exception was encountered</p>
+			<h1 class="text-center pt-2 fw-bold">Oops! Tujuan sedang tidak beres.</h1>
+			<div class="card">
+				<div class="card-body border rounded">
+				<div id="container" style="display: none">
+						<p>Type: <?php echo get_class($exception); ?></p>
+						<p>Message: <?php echo $message; ?></p>
+						<p>Filename: <?php echo $exception->getFile(); ?></p>
+						<p>Line Number: <?php echo $exception->getLine(); ?></p>
 
-<h4>An uncaught Exception was encountered</h4>
+						<?php if (defined('SHOW_DEBUG_BACKTRACE') && SHOW_DEBUG_BACKTRACE === TRUE) : ?>
 
-<p>Type: <?php echo get_class($exception); ?></p>
-<p>Message: <?php echo $message; ?></p>
-<p>Filename: <?php echo $exception->getFile(); ?></p>
-<p>Line Number: <?php echo $exception->getLine(); ?></p>
+							<p>Backtrace:</p>
+							<?php foreach ($exception->getTrace() as $error) : ?>
 
-<?php if (defined('SHOW_DEBUG_BACKTRACE') && SHOW_DEBUG_BACKTRACE === TRUE): ?>
+								<?php if (isset($error['file']) && strpos($error['file'], realpath(BASEPATH)) !== 0) : ?>
 
-	<p>Backtrace:</p>
-	<?php foreach ($exception->getTrace() as $error): ?>
+									<p style="margin-left:10px">
+										File: <?php echo $error['file']; ?><br />
+										Line: <?php echo $error['line']; ?><br />
+										Function: <?php echo $error['function']; ?>
+									</p>
+								<?php endif ?>
 
-		<?php if (isset($error['file']) && strpos($error['file'], realpath(BASEPATH)) !== 0): ?>
+							<?php endforeach ?>
 
-			<p style="margin-left:10px">
-			File: <?php echo $error['file']; ?><br />
-			Line: <?php echo $error['line']; ?><br />
-			Function: <?php echo $error['function']; ?>
-			</p>
-		<?php endif ?>
-
-	<?php endforeach ?>
-
-<?php endif ?>
-
+						<?php endif ?>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<p>Created with Coffe by <a href="https://ikyyilham.github.io/">IkyyDEV</a></p>
 </div>

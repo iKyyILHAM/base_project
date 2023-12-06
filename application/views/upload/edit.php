@@ -83,7 +83,6 @@
 					response = JSON.parse(response)
 					if (response.status === 'success') {
 						Swal.fire({
-							position: "top-end",
 							icon: "success",
 							title: "Berhasil disimpan",
 							showConfirmButton: false,

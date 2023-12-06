@@ -43,7 +43,7 @@ FilePond.create(document.querySelector(".imgbb-filepond"), {
       const request = new XMLHttpRequest()
       request.open(
         "POST",
-        "https://api.imgbb.com/1/upload?key=762894e2014f83c023b233b2f10395e2"
+        "https://api.imgbb.com/1/upload?key=c42289529ca86fc855da574e86ff1077"
       )
 
       request.upload.onprogress = (e) => {

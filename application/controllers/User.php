@@ -4,14 +4,21 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class User extends CI_Controller
 {
 
-    public function __construct()
-    {
-        parent::__construct();
-        if (!$this->session->userdata('name')) {
-            redirect('auth/login');
-        }
-        $this->load->model('user_model', 'User');
-    }
+	public function __construct()
+	{
+		parent::__construct();
+		if (!$this->session->userdata('name')) {
+			redirect('auth/login');
+		}
+				
+		$role = $this->session->userdata('role');
+		if ($role !== '1') {
+			show_404();
+		}
+		
+		$this->load->model('user_model', 'User');
+	}
+	
 
     public function index()
     {

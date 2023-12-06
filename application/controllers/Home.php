@@ -15,6 +15,7 @@ class Home extends CI_Controller
 
     public function index()
     {
+		// dd($this->session->userdata('role'));
         $data['title'] = 'Dashboard';
         $data['count_user'] = $this->db->count_all('user');
         $data['content'] = 'home';
