@@ -18,6 +18,11 @@
 	<link rel="shortcut icon" href="<?= base_url('assets/images/logo/favicon.svg') ?>" type="image/x-icon" />
 	<link rel="shortcut icon" href="<?= base_url('assets/images/logo/favicon.png') ?>" type="image/png" />
 </head>
+<style>
+:root {
+		color-scheme: light only !important;
+	}
+</style>
 
 <body>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

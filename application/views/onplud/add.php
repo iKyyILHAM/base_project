@@ -9,7 +9,7 @@
 				<nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
 					<ol class="breadcrumb">
 						<li class="breadcrumb-item">
-							<a href="index.html">Berkas</a>
+							<a href="<?= base_url('onplud') ?>">Berkas</a>
 						</li>
 						<li class="breadcrumb-item active" aria-current="page">
 							Tambah Gambar
@@ -22,8 +22,8 @@
 	<section class="section">
 		<div class="card">
 			<div class="card-header">
-				<h4 class="card-title">Tambah ImgBB</h4>
-				<a class="btn btn-primary float-end" href="<?= base_url('upload') ?>">Kembali</a>
+				<h4 class="card-title">Tambah Gambar</h4>
+				<a class="btn btn-primary float-end" href="<?= base_url('onplud') ?>">Kembali</a>
 			</div>
 			<div class="card-body">
 				<form id="upload-imgbb" data-parsley-validate method="post" enctype="multipart/form-data">

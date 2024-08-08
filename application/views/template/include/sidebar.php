@@ -46,7 +46,7 @@ $current_page = get_current_page();
 				<li class="sidebar-item <?= is_active('onplud', $current_page) ?>">
 					<a href="<?= base_url('onplud') ?>" class="sidebar-link">
 						<i class="bi bi-card-image"></i>
-						<span>ImgBB Uploader</span>
+						<span>Gambar</span>
 					</a>
 				</li>
 
